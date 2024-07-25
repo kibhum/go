@@ -1,0 +1,1 @@
+These are the contents learned from [Full Time Go Dev](https://fulltimegodev.com/) course
