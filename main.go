@@ -62,5 +62,45 @@ fmt.Printf("Player: \n%+v\n",player)
 fmt.Printf("Player's health: %d\n",getHealth((player)))
 // Using the methdd
 fmt.Printf("Player's health: %d\n",player.getHealth())
+// MAPS
+users:=map[string]int{
+	"Humphrey":28,
+} 
+users["Brian"]=29
+// Second way
+clubs :=make(map[string]string)
+clubs["Bayern"]="Germany"
+clubs["Chelsea"]="England"
+fmt.Printf("Users: \n%+v\n",users)
+fmt.Printf("Clubs: \n%+v\n",clubs)
 
+// Checking if value exists
+
+age, ok:=users["Brian"]
+// deleting from the map (MAPTODELETEFROM, KEY)
+delete(users, "Humphrey")
+if !ok {
+	fmt.Println("Doesn't exist")
+	}else{
+	fmt.Println("Exist: ",age)
+}
+// lOOPING THROUGH MAPS
+for k,v := range clubs {
+	fmt.Printf("The key is %s and the value is %s\n",k,v)
+}
+// Slices
+numbers :=[]int{}
+otherNumbers:=make([]int,0)
+fmt.Println(numbers)
+fmt.Println(otherNumbers)
+
+// Arrays
+scores :=[3]int{}
+scores[0]= 3
+scores[1]= 6
+scores[2]= 5
+numbers = append(numbers, scores[2])
+numbers = append(numbers, scores[0])
+fmt.Println(scores)
+fmt.Println(numbers)
 }
