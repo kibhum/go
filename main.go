@@ -43,6 +43,48 @@ func getHealth(player Player) int {
 	return player.health
 }
 
+type WeaponType int
+
+const (
+	Axe WeaponType = iota //Increment below
+	Sword  
+	WoodenStick  
+	Knife  
+)
+
+func (w WeaponType) String() string {
+	switch w {
+	case Sword:{
+		return "SWORD"
+	}
+	case Axe:{
+		return "AXE"
+	}
+	default:
+		return ""
+	}
+}
+// const (
+// 	Axe WeaponType =1
+// 	Sword WeaponType =2
+// 	WoodenStick WeaponType =3
+// 	Knife WeaponType =4
+// )
+
+func getDamage(weaponType WeaponType) int{
+	switch (weaponType) {
+	case Axe:
+		return 100
+	case Sword:
+		return 90
+	case WoodenStick:
+		return 1
+	case Knife:
+		return 40
+	default:
+		panic("unknown weapon type")	
+	}
+}
 
 func main() {
 	country := "Kenya"
@@ -103,4 +145,5 @@ numbers = append(numbers, scores[2])
 numbers = append(numbers, scores[0])
 fmt.Println(scores)
 fmt.Println(numbers)
+fmt.Println(getDamage(Axe))
 }
