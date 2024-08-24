@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"mygoproject/types"
+	"mygoproject/util"
+)
 
 var name = "Kibet"
 const firstName="Humphrey"
@@ -86,6 +90,28 @@ func getDamage(weaponType WeaponType) int{
 	}
 }
 
+type NumberStorer interface {
+	GetAll()([]int, error)
+	Put(int) error
+}
+
+type ApiServer struct{
+	numberStore NumberStorer
+}
+
+type MongoDBNumberStore struct{
+	// some value
+}
+
+func (m MongoDBNumberStore) GetAll() ([]int, error) {
+return []int{1,2,3},nil
+}
+
+func (m MongoDBNumberStore) Put(number int)  error {
+fmt.Println("Store the number to MongoDB")
+return nil
+}
+
 func main() {
 	country := "Kenya"
 
@@ -146,4 +172,32 @@ numbers = append(numbers, scores[0])
 fmt.Println(scores)
 fmt.Println(numbers)
 fmt.Println(getDamage(Axe))
+
+// Control structures
+nums := []int{1,2,3,4,5,6,7} 
+for i:=0;i<len(nums); i++ {
+	fmt.Println(nums[i])
+}
+
+names := []string{"a", "b", "c", "d", "e", "f"}
+for i,name := range names {
+	fmt.Println(i,name)
+}
+
+apiServer :=ApiServer{
+	numberStore: MongoDBNumberStore{},
+}
+nms,err:=apiServer.numberStore.GetAll();
+if err != nil {
+	panic(err)
+}
+fmt.Println(nms)
+
+
+user := types.User{
+	Username: "James",
+	Age: util.GetAge(),
+}
+
+fmt.Printf("The user is %+v: ", user)
 }
