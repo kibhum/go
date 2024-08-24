@@ -198,6 +198,15 @@ user := types.User{
 	Username: "James",
 	Age: util.GetAge(),
 }
+ 
+fmt.Printf("The user is %+v\n: ", user)
 
-fmt.Printf("The user is %+v: ", user)
+e := &types.Entity{
+	Name: "my entity",
+	Id: "1",
+	Version: "1.1",
+	Posx: 100,
+	Posy: 200,
+}
+fmt.Printf("\n%+v\n", e)
 }

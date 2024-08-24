@@ -1,2 +1,2 @@
-Modules
-Video 8 
+Advanced types techniques
+Video 9 
