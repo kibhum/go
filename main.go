@@ -201,12 +201,28 @@ user := types.User{
  
 fmt.Printf("The user is %+v\n: ", user)
 
-e := &types.Entity{
+e := types.Entity{
 	Name: "my entity",
 	Id: "1",
 	Version: "1.1",
-	Posx: 100,
-	Posy: 200,
+	Position: types.Position{
+		X: 100,
+		Y: 200,
+	},
+	
 }
 fmt.Printf("\n%+v\n", e)
+s := types.SpecialEntity{
+	SpecialField: 99.90,
+	Entity: types.Entity{
+		Name: "our entity",
+	Id: "1",
+	Version: "1.1",
+	Position: types.Position{
+		X: 100,
+		Y: 200,
+	},
+	},
+}
+fmt.Printf("\n%+v\n", s.Y)
 }
